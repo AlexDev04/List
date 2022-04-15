@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppRoute } from '../../const';
+import { Link } from 'react-router-dom';
 
 export const Header = ({mode}) => {
     return (
@@ -7,8 +8,8 @@ export const Header = ({mode}) => {
             <section className="main__header-wrap">
                 <span className="main__header-logo">SomeList</span>
                 <div className="main__header-group-lnk">
-                    <a href="#" className={`main__header-lnk ${mode === AppRoute.MAIN && 'lnk-active'}`}>События</a>
-                    <a href="#" className={`main__header-lnk ${mode === AppRoute.ARCHIVE && 'lnk-active'}`}>Архив</a>
+                    <Link to="/" className={`main__header-lnk ${mode === AppRoute.MAIN && 'lnk-active'}`}>События</Link>
+                    <Link to={AppRoute.ARCHIVE} className={`main__header-lnk ${mode === AppRoute.ARCHIVE && 'lnk-active'}`}>Архив</Link>
                 </div>
             </section>
         </section>

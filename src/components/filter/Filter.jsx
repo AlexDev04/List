@@ -1,5 +1,6 @@
 import React from "react";
 import {AppRoute} from "../../const";
+import {Link} from "react-router-dom";
 
 export const Filter = ({mode}) => {
     return (
@@ -55,9 +56,9 @@ export const Filter = ({mode}) => {
 
             {mode === AppRoute.MAIN
                 ?
-                <button name="control" className="btn-add">
+                <Link to="/event" name="control" className="btn-add">
                     Создать
-                </button>
+                </Link>
                 : null
             }
         </section>

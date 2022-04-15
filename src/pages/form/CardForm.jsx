@@ -8,7 +8,8 @@ export const CardForm = () => {
             <Header mode={AppRoute.MAIN}/>
             <section className="main__wrapper">
                 <Filter mode={AppRoute.EVENT} />
-                <Board mode={AppRoute.EVENT}/>
+                {/*<Board mode={AppRoute.EVENT}/>*/}
+                <Event />
             </section>
         </main>
     );

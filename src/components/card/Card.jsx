@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Card = ({mode}) => {
+export const Card = () => {
     return (
         <article className='card'>
             <div className="card__form">

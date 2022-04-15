@@ -6,7 +6,7 @@ export const Board = ({mode}) => {
     return (
         <section className="board">
                 {/*<NoEvents />*/}
-            {mode !== AppRoute.EVENT
+            {mode === AppRoute.MAIN
                 ?
                 <>
                     <Sorting />
@@ -15,7 +15,13 @@ export const Board = ({mode}) => {
                     </div>
                     <LoadMore />
                 </>
-                :  <Event />
+                :
+                <>
+                    <div className="board__events">
+                        <Card />
+                    </div>
+                    <LoadMore />
+                </>
             }
         </section>
     )
