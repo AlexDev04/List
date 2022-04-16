@@ -8,7 +8,7 @@ export const Header = ({mode}) => {
             <section className="main__header-wrap">
                 <span className="main__header-logo">SomeList</span>
                 <div className="main__header-group-lnk">
-                    <Link to="/" className={`main__header-lnk ${mode === AppRoute.MAIN && 'lnk-active'}`}>События</Link>
+                    <Link to={AppRoute.MAIN} className={`main__header-lnk ${mode === AppRoute.MAIN && 'lnk-active'}`}>События</Link>
                     <Link to={AppRoute.ARCHIVE} className={`main__header-lnk ${mode === AppRoute.ARCHIVE && 'lnk-active'}`}>Архив</Link>
                 </div>
             </section>
