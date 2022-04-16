@@ -8,10 +8,10 @@ export const App = () => {
   return (
       <BrowserRouter>
           <Switch>
-              <Route path="/" exact>
+              <Route exact path="/">
                   <Main />
               </Route>
-              <Route path={AppRoute.ARCHIVE} exact component={Archive} />
+              <Route path={AppRoute.ARCHIVE} component={Archive} />
               <Route path={AppRoute.EVENT}>
                   <CardForm />
               </Route>

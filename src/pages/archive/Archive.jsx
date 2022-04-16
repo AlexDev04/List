@@ -3,24 +3,15 @@ import { Board, Header } from '../../components';
 import { AppRoute } from '../../const';
 import { useParams } from 'react-router-dom';
 
-export const Archive = (props) => {
+export const Archive = () => {
 
-    const { id } = props.match.params;
-    // const { id } = useParams();
+    const { id } = useParams();
 
     const kek = () => {
         return id ? `ID есть, вот он - ${id}` : 'Нет ID никакого'
     }
 
     console.log('id', id)
-
-    // const {id} = useParams();
-    //
-    // const render = () => {
-    //     return id ? 'id есть' : 'id нет'
-    // };
-    //
-    // console.log(useParams());
 
     return (
         <>
