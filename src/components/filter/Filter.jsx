@@ -1,8 +1,13 @@
 import React from "react";
 import {AppRoute} from "../../const";
-import {Link} from "react-router-dom";
+import {Link, useLocation } from "react-router-dom";
 
-export const Filter = ({mode}) => {
+export const Filter = () => {
+
+    const pathname = useLocation().pathname.slice(0, 8);
+    console.log(pathname);
+    console.log(AppRoute.ARCHIVE.slice(0, 8));
+
     return (
         <section className="main__filter filter">
             <input
@@ -54,12 +59,12 @@ export const Filter = ({mode}) => {
                 Избранное <span className="filter__favorite-count count">1</span>
             </label>
 
-            {mode === AppRoute.MAIN
-                ?
+            {pathname === AppRoute.ARCHIVE.slice(0, 8)
+                ? null
+                :
                 <Link to="/event" name="control" className="btn-add">
                     Создать
                 </Link>
-                : null
             }
         </section>
     );

@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import {useParams} from "react-router-dom";
 
 export const Event = () => {
+
+    const [id, setId] = useState('')
+
+    const params = useParams();
+
+    useEffect(() => setId(params.id), [params.id]);
+    console.log(id);
+
+    let heading, task;
+    if (id){
+        heading = `Изменение события ${id}`;
+        task = 'Сохранить'
+    } else {
+        heading = `Добавление события`;
+        task = 'Добавить'
+    }
+
     return (
         <section className="board">
             <form className="board__form">
-                <h2 className="board__title">Добавление события</h2>
+                <h2 className="board__title">{heading}</h2>
                 <fieldset className="board__field board__field--theme">
                     <label htmlFor="theme" className="board__label board__label--theme">Тема:</label>
                     <textarea
@@ -32,7 +50,7 @@ export const Event = () => {
                     />
                 </fieldset>
                 <div className="btns">
-                    <button type="submit" className="btn-submit">Добавить</button>
+                    <button type="submit" className="btn-submit">{task}</button>
                     <button type="reset" className="btn-reset">Очистить</button>
                 </div>
             </form>
