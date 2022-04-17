@@ -6,3 +6,4 @@ export { Event } from './event';
 export { NoEvents } from './noEvents';
 export { LoadMore } from './loadMore';
 export { Sorting } from './sorting';
+export { NotFound } from './notFound';

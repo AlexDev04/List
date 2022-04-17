@@ -1,13 +1,18 @@
 import React from 'react';
 import { Board, Header } from '../../components';
-import { AppRoute } from '../../const';
+import { useParams } from 'react-router-dom';
 
 export const Archive = () => {
+
+    const { id } = useParams();
+
+    console.log('id', id)
+
     return (
         <>
-            <Header mode={AppRoute.ARCHIVE}/>
+            <Header />
             <section className="main__wrapper">
-                <Board mode={AppRoute.ARCHIVE}/>
+                <Board />
             </section>
         </>
     )
