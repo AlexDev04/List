@@ -9,11 +9,11 @@ export const Archive = () => {
     console.log('id', id)
 
     return (
-        <>
+        <main className="main">
             <Header />
             <section className="main__wrapper">
                 <Board />
             </section>
-        </>
+        </main>
     )
 }
