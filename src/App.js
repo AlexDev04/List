@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Archive, Main, CardForm} from './pages';
+import { NotFound } from './components';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { AppRoute } from './const';
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <BrowserRouter>
+          <Switch>
+              <Route exact path="/">
+                  <Main />
+              </Route>
+              <Route path={AppRoute.ARCHIVE} component={Archive} />
+              <Route path={AppRoute.EVENT}>
+                  <CardForm />
+              </Route>
+              <Route>
+                  <NotFound />
+              </Route>
+          </Switch>
+      </BrowserRouter>
+  )
 }
-
-export default App;
