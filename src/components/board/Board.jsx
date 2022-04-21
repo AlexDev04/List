@@ -3,7 +3,7 @@ import {Card, Event, LoadMore, NoEvents, Sorting} from '../';
 import {AppRoute} from "../../const";
 import {useLocation} from "react-router-dom";
 
-export const Board = () => {
+export const Board = ({events}) => {
 
     const pathname = useLocation().pathname.slice(0, 8);
     console.log(pathname);
@@ -16,7 +16,7 @@ export const Board = () => {
                 && <Sorting />
             }
             <div className="board__events">
-                <Card />
+                {events.map(event => <Card {...event} key={event._id} />)}
             </div>
             <LoadMore />
         </section>

@@ -4,14 +4,16 @@ import { NotFound } from './components';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import { AppRoute } from './const';
 
-export const App = () => {
+export const App = ({events}) => {
   return (
       <BrowserRouter>
           <Switch>
               <Route exact path="/">
-                  <Main />
+                  <Main events={events} />
               </Route>
-              <Route path={AppRoute.ARCHIVE} component={Archive} />
+              <Route path={AppRoute.ARCHIVE}>
+                  <Archive events={events} />
+              </Route>
               <Route path={AppRoute.EVENT}>
                   <CardForm />
               </Route>
