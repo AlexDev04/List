@@ -12,23 +12,13 @@ export const Board = () => {
     return (
         <section className="board">
                 {/*<NoEvents />*/}
-            {pathname === AppRoute.ARCHIVE.slice(0, 8)
-                ?
-                <>
-                    <div className="board__events">
-                        <Card />
-                    </div>
-                    <LoadMore />
-                </>
-                :
-                <>
-                    <Sorting />
-                    <div className="board__events">
-                        <Card />
-                    </div>
-                    <LoadMore />
-                </>
+            {pathname !== AppRoute.ARCHIVE.slice(0, 8)
+                && <Sorting />
             }
+            <div className="board__events">
+                <Card />
+            </div>
+            <LoadMore />
         </section>
     )
 }

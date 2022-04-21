@@ -59,9 +59,8 @@ export const Filter = () => {
                 Избранное <span className="filter__favorite-count count">1</span>
             </label>
 
-            {pathname === AppRoute.ARCHIVE.slice(0, 8)
-                ? null
-                :
+            {pathname === AppRoute.MAIN
+                &&
                 <Link to="/event" name="control" className="btn-add">
                     Создать
                 </Link>
