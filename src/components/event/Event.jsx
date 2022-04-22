@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import {useParams} from "react-router-dom";
+import moment from 'moment';
 
-export const Event = () => {
+export const Event = ({data}) => {
 
-    const [id, setId] = useState('')
+    const [info, setInfo] = useState('');
+    useEffect(() => setInfo(data), [data])
+    console.log(`info: ${info}`)
 
-    const params = useParams();
-
-    useEffect(() => setId(params.id), [params.id]);
-    console.log(id);
+    // const [id, setId] = useState('');
+    // const params = useParams();
+    // useEffect(() => setId(params.id), [params.id]);
+    // console.log(id);
 
     let heading, task;
-    if (id){
-        heading = `Изменение события ${id}`;
+    if (info._id){
+        heading = `Изменение события ${info._id}`;
         task = 'Сохранить'
     } else {
         heading = `Добавление события`;
         task = 'Добавить'
     }
+
+    console.log(info);
 
     return (
         <section className="board">
@@ -29,6 +34,7 @@ export const Event = () => {
                         type="text"
                         className="board__input board__input--theme"
                         name="theme"
+                        value={info.theme}
                         required
                     ></textarea>
                 </fieldset>
@@ -38,6 +44,7 @@ export const Event = () => {
                         type="text"
                         className="board__input board__input--comment"
                         name="comment"
+                        value={info.comment}
                         required
                     ></textarea>
                 </fieldset>
@@ -47,6 +54,7 @@ export const Event = () => {
                         type="datetime-local"
                         className="board__input board__input--date"
                         name="date"
+                        value={moment(info.date).format('YYYY-MM-DDThh:mm')}
                     />
                 </fieldset>
                 <div className="btns">

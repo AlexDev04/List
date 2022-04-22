@@ -5,8 +5,8 @@ import {Link, useLocation } from "react-router-dom";
 export const Filter = () => {
 
     const pathname = useLocation().pathname.slice(0, 8);
-    console.log(pathname);
-    console.log(AppRoute.ARCHIVE.slice(0, 8));
+    // console.log(pathname);
+    // console.log(AppRoute.ARCHIVE.slice(0, 8));
 
     return (
         <section className="main__filter filter">
