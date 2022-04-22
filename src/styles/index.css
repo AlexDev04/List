@@ -366,6 +366,10 @@ body {
 }
 .card__btn--favorites {
   background-image: url('../img/favorite.svg');
+  -webkit-mask-size: cover;
+  mask: url('../img/favorite.svg');
+  mask-size: cover;
+  background-color: #000000;
 }
 .card__btn--remove {
   background-image: url('../img/remove.svg');
