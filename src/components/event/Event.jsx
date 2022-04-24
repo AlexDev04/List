@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useParams} from "react-router-dom";
 import moment from 'moment';
 import { editEvent, addEvent } from '../../API';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 export const Event = ({data}) => {
 
@@ -9,6 +10,8 @@ export const Event = ({data}) => {
     useEffect(() => setInfo(data), [data])
     console.log(info)
     // console.log({...info})
+
+    const history = useHistory();
 
     let heading, task;
     if (info._id){
@@ -30,7 +33,7 @@ export const Event = ({data}) => {
             id: info._id,
             ...info,
         })
-
+        history.push('/');
     }
 
     return (
