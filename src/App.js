@@ -11,7 +11,7 @@ export const App = ({events}) => {
               <Route exact path="/">
                   <Main />
               </Route>
-              <Route path={AppRoute.ARCHIVE}>
+              <Route exact path={AppRoute.ARCHIVE}>
                   <Archive />
               </Route>
               <Route path={AppRoute.EVENT}>

@@ -67,6 +67,11 @@ class EventsStore {
     yield deleteEvent(id)
     yield this.fetch();
   }
+
+  *clearArchive() {
+    yield this.clearArchive()
+    yield this.fetch();
+  }
 }
 
 export const events = new EventsStore();

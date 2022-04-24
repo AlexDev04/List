@@ -10,11 +10,6 @@ export const Event = ({data}) => {
     console.log(info)
     // console.log({...info})
 
-    // const [id, setId] = useState('');
-    // const params = useParams();
-    // useEffect(() => setId(params.id), [params.id]);
-    // console.log(id);
-
     let heading, task;
     if (info._id){
         heading = `Изменение события ${info._id}`;
@@ -35,6 +30,7 @@ export const Event = ({data}) => {
             id: info._id,
             ...info,
         })
+
     }
 
     return (

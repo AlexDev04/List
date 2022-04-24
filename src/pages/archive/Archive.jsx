@@ -6,10 +6,6 @@ import { observer } from 'mobx-react-lite';
 
 export const Archive = observer(() => {
 
-    const { id } = useParams();
-
-    console.log('id', id);
-
     const { archiveData } = events;
 
     return (
