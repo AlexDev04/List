@@ -22,7 +22,7 @@ export const Event = ({data}) => {
         task = 'Добавить'
     }
 
-    console.log(info);
+    // console.log(info);
 
     return (
         <section className="board">

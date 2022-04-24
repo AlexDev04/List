@@ -44,6 +44,10 @@ class EventsStore {
     return this.data.map(event => new EventStore(event)).filter(x => !x.archive)
   }
 
+  get allData() {
+    return this.data.map(event => new EventStore(event))
+  }
+
   *fetch() {
     const response = yield getEvents();
     this.data = response.map(event => new EventStore(event));
