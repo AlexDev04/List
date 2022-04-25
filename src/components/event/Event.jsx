@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import {useParams} from "react-router-dom";
 import moment from 'moment';
+import { editEvent, addEvent } from '../../API';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 export const Event = ({data}) => {
 
     const [info, setInfo] = useState('');
     useEffect(() => setInfo(data), [data])
-    console.log(`info: ${info}`)
+    console.log(info)
+    // console.log({...info})
 
-    // const [id, setId] = useState('');
-    // const params = useParams();
-    // useEffect(() => setId(params.id), [params.id]);
-    // console.log(id);
+    const history = useHistory();
 
     let heading, task;
     if (info._id){
@@ -22,7 +22,19 @@ export const Event = ({data}) => {
         task = 'Добавить'
     }
 
-    console.log(info);
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        info._id
+        ? editEvent({
+            id: info._id,
+            ...info
+        })
+        : addEvent({
+            id: info._id,
+            ...info,
+        })
+        history.push('/');
+    }
 
     return (
         <section className="board">
@@ -35,6 +47,7 @@ export const Event = ({data}) => {
                         className="board__input board__input--theme"
                         name="theme"
                         value={info.theme}
+                        onChange={evt => setInfo({...info, theme: evt.target.value})}
                         required
                     ></textarea>
                 </fieldset>
@@ -45,6 +58,7 @@ export const Event = ({data}) => {
                         className="board__input board__input--comment"
                         name="comment"
                         value={info.comment}
+                        onChange={evt => setInfo({...info, comment: evt.target.value})}
                         required
                     ></textarea>
                 </fieldset>
@@ -55,10 +69,17 @@ export const Event = ({data}) => {
                         className="board__input board__input--date"
                         name="date"
                         value={moment(info.date).format('YYYY-MM-DDThh:mm')}
+                        onChange={evt => setInfo({...info, date: evt.target.value})}
                     />
                 </fieldset>
                 <div className="btns">
-                    <button type="submit" className="btn-submit">{task}</button>
+                    <button
+                        type="submit"
+                        className="btn-submit"
+                        onClick={handleSubmit}
+                    >
+                        {task}
+                    </button>
                     <button type="reset" className="btn-reset">Очистить</button>
                 </div>
             </form>

@@ -9,10 +9,10 @@ export const App = ({events}) => {
       <BrowserRouter>
           <Switch>
               <Route exact path="/">
-                  <Main events={events} />
+                  <Main />
               </Route>
-              <Route path={AppRoute.ARCHIVE}>
-                  <Archive events={events} />
+              <Route exact path={AppRoute.ARCHIVE}>
+                  <Archive />
               </Route>
               <Route path={AppRoute.EVENT}>
                   <CardForm />
