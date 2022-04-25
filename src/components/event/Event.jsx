@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {useParams} from "react-router-dom";
 import moment from 'moment';
 import { editEvent, addEvent } from '../../API';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+import { events } from '../../store';
 
-export const Event = ({data}) => {
+export const Event = observer(({data}) => {
 
     const [info, setInfo] = useState('');
     useEffect(() => setInfo(data), [data])
@@ -34,6 +35,7 @@ export const Event = ({data}) => {
             ...info,
         })
         history.push('/');
+        events.fetch();
     }
 
     return (
@@ -85,4 +87,4 @@ export const Event = ({data}) => {
             </form>
         </section>
     );
-};
+})

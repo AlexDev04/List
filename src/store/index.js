@@ -49,12 +49,13 @@ class EventsStore {
   }
 
   *fetch() {
+    console.log('fetch');
     const response = yield getEvents();
     this.data = response.map(event => new EventStore(event));
   }
 
   *addEvent(data) {
-    yield addEvent(data)
+    yield addEvent(data);
     yield this.fetch();
   }
 
