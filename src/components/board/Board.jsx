@@ -1,11 +1,18 @@
-import React from 'react';
-import {Card, Event, LoadMore, NoEvents, Sorting} from '../';
-import {AppRoute} from "../../const";
-import {useLocation} from "react-router-dom";
+import React, { useState } from 'react';
+import { Card, LoadMore, NoEvents, Sorting } from '../';
+import { AppRoute } from "../../const";
+import { useLocation } from "react-router-dom";
 
 export const Board = ({events}) => {
 
     const pathname = useLocation().pathname
+
+    const [step, setStep] = useState(10);
+
+    const handleLoadMore = () => {
+        console.log('click');
+        events.length >= step ? setStep(step + 10) : setStep(events.length);
+    }
 
     return (
         <section className="board">
@@ -14,9 +21,9 @@ export const Board = ({events}) => {
                 && <Sorting />
             }
             <div className="board__events">
-                {events.map(event => <Card {...event} key={event._id} />)}
+                {events.slice(0, step).map(event => <Card {...event} key={event._id} />)}
             </div>
-            <LoadMore />
+            <LoadMore onClick={handleLoadMore} />
         </section>
     )
 }
