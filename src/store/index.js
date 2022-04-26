@@ -69,6 +69,14 @@ class EventsStore {
     return this.data.map(event => new EventStore (event)).filter(x => x.favorite && !x.archive)
   }
 
+  // get increaseData() {
+  //   return this.filtredData.sort((x, y) => moment(x.date).isAfter(moment(y.day))? 1 : -1)
+  // }
+
+  // get decreaseData() {
+  //   return this.filtredData.sort((x, y) => moment(x.date).isBefore(moment(y.day))? 1 : -1)
+  // }
+
   *fetch() {
     const response = yield getEvents();
     this.data = response.map(event => new EventStore(event));
