@@ -31,8 +31,10 @@ export const Event = observer(({data}) => {
             ...info
         })
         : addEvent({
-            id: info._id,
-            ...info,
+            theme: info.theme,
+            comment: info.comment,
+            date: info.date,
+            favorite: info.favorite,
         })
         history.push('/');
         events.fetch();
